@@ -1,0 +1,99 @@
+﻿<Window x:Class="IP_HW1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IP_HW1"
+        mc:Ignorable="d"
+        Title="Image Enhancement" Height="900" Width="1399">
+    <Grid>
+        <!-- Original Image ############################################################################################################## -->
+        <Image Name ="Org01" HorizontalAlignment="Left" Height="150" Margin="75,100,0,0" VerticalAlignment="Top" Width="150"
+               Source="/Image/Cameraman.bmp"/>
+        <Image Name ="Org02" HorizontalAlignment="Left" Height="150" Margin="294,100,0,0" VerticalAlignment="Top" Width="150"
+               Source="/Image/Lena.bmp"/>
+        <Image Name ="Org03" HorizontalAlignment="Left" Height="150" Margin="512,100,0,0" VerticalAlignment="Top" Width="150"
+               Source="/Image/Peppers.bmp"/>
+        <!-- Original Image ############################################################################################################## -->
+
+
+        <!-- Output Image ############################################################################################################## -->
+        <Image Name ="Out01" HorizontalAlignment="Left" Height="220" Margin="75,412,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <Image Name ="Out02" HorizontalAlignment="Left" Height="168" Margin="75,655,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <Image Name ="Out03" HorizontalAlignment="Left" Height="220" Margin="370,412,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <Image Name ="Out04" HorizontalAlignment="Left" Height="168" Margin="370,655,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <Image Name ="Out05" HorizontalAlignment="Left" Height="220" Margin="665,412,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <Image Name ="Out06" HorizontalAlignment="Left" Height="168" Margin="665,655,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <Image Name ="OriHist" HorizontalAlignment="Left" Height="168" Margin="1068,332,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <Image Name ="OriImage" HorizontalAlignment="Left" Height="220" Margin="1068,96,0,0" VerticalAlignment="Top" Width="220" 
+               />
+        <!-- Output Image ############################################################################################################## -->
+
+
+        <!-- Button ############################################################################################################## -->
+        <Button Name ="Btn01" Content="PROCESS" FontSize ="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="75,265,0,0" Height="41" 
+                Click="Btn01_Click" ClickMode="Press" BorderBrush="LightBlue"/>
+        <Button Name ="Btn02" Content="PROCESS" FontSize ="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="294,265,0,0" Height="41"
+                Click="Btn02_Click" ClickMode="Press" BorderBrush="LightBlue"/>
+        <Button Name ="Btn03" Content="PROCESS" FontSize ="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Margin="512,265,0,0" Height="41"
+                Click="Btn03_Click" ClickMode="Press" BorderBrush="LightBlue"/>
+        <Button Name ="BtnOpen" Content="OPEN FILE" FontSize ="18" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="932,262,0,0" Height="75"
+                Click="BtnOpen_Click" ClickMode="Press" BorderBrush="LightBlue"/>
+        <Button Name ="BtnOpenDir" Content="Output DIR" FontSize ="18" HorizontalAlignment="Left" VerticalAlignment="Top" Width="110" Margin="932,368,0,0" Height="75"
+                Click="BtnOpenDir_Click" ClickMode="Press" BorderBrush="LightBlue"/>
+        <!-- Button ############################################################################################################## -->
+
+
+        <!-- Text ############################################################################################################## -->
+        <Label Content="Cameraman" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="256" Margin="32,35,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+        <Label Content="Lena" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="256" Margin="238,36,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+        <Label Content="Peppers" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="256" Margin="458,35,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30"/>
+        <Label Content="Original Image" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="256" Margin="1051,36,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26"/>
+        <Label Content="Histogram Equalization" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="256" Margin="56,348,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22"/>
+        <Label Content="Power Law" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="256" Margin="353,348,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26"/>
+        <Label Content="Laplacian Sharpening" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="256" Margin="649,347,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24"/>
+        <Label HorizontalAlignment="Left" Height="44" Margin="719,51,0,0"  VerticalAlignment="Top" Width="186" FontSize="26"
+               Content="Power Law"/>
+        <Label HorizontalAlignment="Left" Height="44" Margin="712,101,0,0"  VerticalAlignment="Top" Width="106" FontSize="20"
+               Content="Gamma"/>
+        <Label HorizontalAlignment="Left" Height="44" Margin="712,182,0,0"  VerticalAlignment="Top" Width="186" FontSize="26"
+               Content="Laplacian"/>
+        <Label HorizontalAlignment="Left" Height="44" Margin="712,226,0,0"  VerticalAlignment="Top" Width="106" FontSize="20"
+               Content="Factor"/>
+        <Label HorizontalAlignment="Left" Height="44" Margin="712,282,0,0"  VerticalAlignment="Top" Width="72" FontSize="20"
+               Content="Bias"/>
+        <Label Content="Instructions" HorizontalAlignment="Left" VerticalAlignment="Top" Height="57" Width="256" Margin="1032,542,0,0" 
+               HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26"/>
+        <TextBlock Text="1. Enter parameters or use default 
+                   2a.  Choose an image 
+                   2b.  Open other image 
+                   3. Click PROCESS botton" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Height="138" Width="425" Margin="948,599,0,0" TextWrapping="Wrap" FontSize="26"/>
+        <TextBlock Text="Processed images and histogram will show on window and also output files" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" Height="103" Width="377" Margin="948,742,0,0" TextWrapping="Wrap" FontSize="26"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="797,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"
+                 x:Name="gammaInput" Background="GhostWhite" FontSize="22"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="797,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"
+                 x:Name="factorInput" Background="GhostWhite" FontSize="22"/>
+        <TextBox HorizontalAlignment="Left" Height="35" Margin="797,281,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82"
+                 x:Name="biasInput" Background="GhostWhite" FontSize="22"/>
+
+        <!-- Text ############################################################################################################## -->
+
+
+    </Grid>
+</Window>
